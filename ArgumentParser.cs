@@ -21,6 +21,8 @@ namespace StratusCube.Shargs {
 		/// </summary>
 		public Dictionary<string , string> Switches => _Switches;
 
+        private Dictionary<string , Type> _SwitchTypes { get; set; }
+
 		/// <summary>
 		/// The alias and the corresponding switch value.
 		/// </summary>
