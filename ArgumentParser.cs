@@ -292,7 +292,7 @@ namespace StratusCube.Shargs {
         /// <returns>Returns a comma separated string of aliases.</returns>
         private string GetAliaseString(string key)  {
             var aliases = this._Aliases.Where(a => a.Value == key).Select(a => a.Key);
-            return aliases != null ? aliases.Aggregate((v1 , v2) => $"{v1}, {v2}") : string.Empty;
+            return aliases != null && aliases.Count() > 0 ? aliases.Aggregate((v1 , v2) => $"{v1}, {v2}") : "";
          }
 
 		/// <summary>
