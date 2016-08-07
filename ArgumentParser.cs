@@ -285,13 +285,15 @@ namespace StratusCube.Shargs {
 			return help.ToString();
 		}
 
-		/// <summary>
-		/// Gets the aliases as a string that is comma separated
-		/// </summary>
-		/// <param name="key">The switch or flag to find and map the aliases to.</param>
-		/// <returns>Returns a comma separated string of aliases.</returns>
-		private string GetAliaseString(string key) =>
-			this._Aliases.Where(a => a.Value == key).Select(a => a.Key).Aggregate((v1 , v2) => $"{v1}, {v2}");
+        /// <summary>
+        /// Gets the aliases as a string that is comma separated
+        /// </summary>
+        /// <param name="key">The switch or flag to find and map the aliases to.</param>
+        /// <returns>Returns a comma separated string of aliases.</returns>
+        private string GetAliaseString(string key)  {
+            var aliases = this._Aliases.Where(a => a.Value == key).Select(a => a.Key);
+            return aliases != null ? aliases.Aggregate((v1 , v2) => $"{v1}, {v2}") : string.Empty;
+         }
 
 		/// <summary>
 		/// Sets the title of the program to display in help.
